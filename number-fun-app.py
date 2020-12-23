@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Author: Dr. Xu Chen, University of Washington
 
 import matplotlib.pyplot as plt
 import numpy as np
