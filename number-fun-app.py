@@ -81,7 +81,7 @@ st.write("The process continues until the end point is back at the 12 o'clock po
 
 # %%
 st.write("""
-# From infinity to beyond: same ring, more patterns with numbers.
+# From infinity to beyond: same ring, more patterns.
 """)
 
 st.write("""
@@ -106,7 +106,6 @@ radius = 0.45
 figure, axes = plt.subplots()
 draw_circle = plt.Circle((0.5, 0.5), 0.45, fill=False)
 
-# plt.title("Circle")
 plt.axis("off")
 axes.set_aspect(1)
 
