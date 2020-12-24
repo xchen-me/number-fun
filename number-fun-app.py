@@ -6,8 +6,9 @@ import numpy as np
 
 import streamlit as st
 
+st.title("Fun number and control games!")
+
 st.write("""
-# Gaming with numbers and controls!
 Xu Chen, University of Washington
 """)
 
