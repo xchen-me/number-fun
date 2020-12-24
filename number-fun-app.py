@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 import streamlit as st
-import streamlit as st2
 
 st.write("""
 # Gaming with numbers and controls!
@@ -14,27 +13,18 @@ Xu Chen, University of Washington
 
 st.write("""
 The modulo operation, denoted as mod, returns the remainder of a division, after one number is divided by another. For example, $3 \pmod 2=1$ and $5 \pmod 3 = 2$.
+
+We create an infinity ring by the following simple mapping starting at 0:
+$x \\leftarrow (x+a) \pmod b$. 
 """)
 
+st.write("Try increase the base number $b$ and change the addition $a$. See what happens!")
 
 ModBase = st.slider("Enter a base number", 1, 50, 5)
 ModAdd = st.slider("Enter an addition number", 1, 30, 2)
 
 st.write("$b=$", ModBase)
 st.write("$a=$", ModAdd)
-
-st.write("""
-We create an infinity ring by the following simple mapping starting at 0:
-$x \\leftarrow (x+a) \pmod b$. 
-In other words, starting at $x=0$, the 12 o'clock point on the ring, we draw a line from $x$ (=0) to the remainder of $(x+a)/b$, or ( 0 +
-""", ModAdd, ") ( mod", ModBase, ") = ", ModAdd % ModBase, """
-. 
-""")
-
-st.write("The new number is then assigned to $x$, followed by the iteration: we now draw a line from",
-         ModAdd % ModBase, "to (", ModAdd, "+", ModAdd % ModBase, ")  ( mod", ModBase, ")=", (ModAdd % ModBase+ModAdd) % ModBase)
-
-st.write("Try increase the base number $b$ and change the addition $a$. See what happens!")
 
 Ntick = ModBase
 radius = 0.45
@@ -78,13 +68,24 @@ figure.tight_layout()
 
 st.write(figure)
 
+st.write("""
+Here is what happened: starting at $x=0$, the 12 o'clock position on the ring, we draw a line from $x$ (=0) to the remainder of $(x+a)/b$, or ( 0 +
+""", ModAdd, ") ( mod", ModBase, ") = ", ModAdd % ModBase, """
+. 
+""")
+
+st.write("The new number is then assigned to $x$, followed by the iteration: we now draw a line from",
+         ModAdd % ModBase, "to (", ModAdd, "+", ModAdd % ModBase, ")  ( mod", ModBase, ")=", (ModAdd % ModBase+ModAdd) % ModBase)
+
+st.write("The process continues until the end point is back at the 12 o'clock position.")
+
 # %%
 st.write("""
 # From infinity to beyond: same ring, more patterns with numbers.
 """)
 
 st.write("""
-Embracing now multiplication, we create another infinity ring by the mapping:
+Embracing now multiplications, we create another infinity ring by the mapping:
 $y = (x \\times a) \pmod b$, where $x$ ranges from 0 to a chosen maximum. 
 """)
 
